@@ -10,4 +10,10 @@ Check the proof:
 <run command>
 ```
 
+<if the proof is made of independent cases, declared in `cases` of entry.json
+(e.g. `"run": "julia --project=checker checker/verify.jl {n}"`,
+`"cases": {"n": "1:18"}`): "The checker is run once per case,
+`<run command with {name}>`; it exits 0 iff the conditions of that case hold,
+and the theorem needs every case." See the specification, §4–§5.>
+
 <citation of the paper, with DOI or arXiv id>

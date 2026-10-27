@@ -30,6 +30,7 @@ end
 isempty(new) && error("no frozen files in $dir")
 open(out, "w") do io
     JSON.print(io, new, 2)
+    println(io)
 end
 for f in sort(collect(keys(new)))
     println(rpad(f, 24), new[f]["sha256"], haskey(new[f], "url") ? "  (url)" : "")

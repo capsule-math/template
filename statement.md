@@ -20,6 +20,9 @@ Reference: `<authors>`, `<title>`, `<DOI or arXiv id>`. Lemma numbers below refe
 ## Conditions to verify
 
 Each is a finite computation in rigorous arithmetic on the inputs above.
+`<if cases are declared in entry.json: name the parameters and their ranges;
+the conditions below are those of a generic case, and the theorem is their
+conjunction over all cases.>`
 
 0. **Input enclosures.** `<which stored intervals must enclose which stated quantities>`
 1. **`<name>` (Lemma X).** `<inequality>`
