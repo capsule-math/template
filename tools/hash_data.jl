@@ -23,8 +23,8 @@ for f in sort(readdir(dir))
     haskey(old, f) && haskey(old[f], "url") && (e["url"] = old[f]["url"])
     new[f] = e
 end
-for (f, e) in old                      # listed, not present locally: keep
-    haskey(new, f) || (new[f] = e)
+for (f, e) in old                      # listed with a url, not present locally: keep
+    haskey(new, f) || !haskey(e, "url") || (new[f] = e)
 end
 
 isempty(new) && error("no frozen files in $dir")
