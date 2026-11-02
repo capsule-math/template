@@ -10,6 +10,6 @@ Check the proof:
 <run command>
 ```
 
-<if the proof is made of independent cases, declared in `cases` of entry.json (e.g. `"run": "julia --project=checker checker/verify.jl {n}"`, `"cases": {"n": "1:18"}`): "The checker is run per case, `<run command with {name}>`; it exits 0 iff the conditions of that case hold, and the theorem needs every case." See the specification, §4–§5.>
+<if the proof is made of independent cases, declared in `cases` of entry.json (e.g. `"run": "julia --project=checker checker/verify.jl {n}"`, `"cases": {"n": "1:18"}`): "The checker is run per case, `<run command with {name}>`; it exits 0 iff the conditions of that case hold, and the theorem needs every case. An automated check runs the single case `test_case` of entry.json (e.g. `"test_case": {"n": 7}`), or the first declared value when there is none." See the specification, §4–§5.>
 
 <citation of the paper, with DOI or arXiv id>
