@@ -1,0 +1,29 @@
+name: Check proofs
+
+# Runs the proof package(s) of this repository through the reusable workflow
+# of capsule-math/index (one test case per package; the whole Cartesian
+# product of `cases` only by hand, with all_cases = true). See that workflow
+# for what the pinned and latest modes do.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '17 3 1 * *'      # 03:17 UTC on the 1st of each month
+  workflow_dispatch:
+    inputs:
+      all_cases:
+        description: 'Run every declared case (Cartesian product of `cases`) instead of one test case'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    uses: capsule-math/index/.github/workflows/check-proofs.yml@main
+    with:
+      all_cases: ${{ github.event_name == 'workflow_dispatch' && inputs.all_cases || false }}

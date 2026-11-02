@@ -1,0 +1,19 @@
+name: CompatHelper
+
+# Opens a pull request whenever a dependency of a checker releases a version
+# outside its [compat] bounds, through the reusable workflow of
+# capsule-math/index (see it for the COMPATHELPER_PRIV secret).
+
+on:
+  schedule:
+    - cron: '41 4 * * 1'      # Mondays 04:41 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  CompatHelper:
+    uses: capsule-math/index/.github/workflows/compathelper.yml@main
+    secrets: inherit
