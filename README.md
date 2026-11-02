@@ -10,6 +10,8 @@ Check the proof:
 <run command>
 ```
 
-<if the proof is made of independent cases, declared in `cases` of entry.json (e.g. `"run": "julia --project=checker checker/verify.jl {n}"`, `"cases": {"n": "1:18"}`): "The checker is run per case, `<run command with {name}>`; it exits 0 iff the conditions of that case hold, and the theorem needs every case. The CI of capsule-math/index (called by `.github/workflows/check.yml`) runs the case `test_case` of entry.json (e.g. `"test_case": {"n": 7}`), or the first declared value when there is none." See [capsule-math/spec](https://github.com/capsule-math/spec), §4–§5.>
+<if the proof is made of independent cases, declared in `cases` of entry.json (e.g. `"run": "julia --project=checker checker/verify.jl {n}"`, `"cases": {"n": "1:18"}`): "The checker is run per case, `<run command with {name}>`; it exits 0 iff the conditions of that case hold, and the theorem needs every case." See [capsule-math/spec](https://github.com/capsule-math/spec), §4–§5.>
+
+The workflows in `.github/workflows/` run the checker on every push and pull request through the CI of [capsule-math/index](https://github.com/capsule-math/index) (`check.yml`; with `cases`, on the case `test_case` of entry.json, or the first declared value when there is none) and open a pull request when a dependency moves out of `[compat]` (`CompatHelper.yml`).
 
 <citation of the paper, with DOI or arXiv id>
